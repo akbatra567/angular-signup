@@ -1,0 +1,54 @@
+<div class="container" style="width: 50%;">
+    <div class="row" style="opacity: 0.9;">
+        <div class="col-md-8 offset-md-2 card card-body">    
+            <h3 class="text-center card-title">{{ title }}</h3>
+            <div>
+                <form [formGroup]="regForm" (ngSubmit)="submit()">
+                    <div class="form-group">
+                        <label for="firstName">First Name:</label>
+                        <input class="form-control" type="text" name="firstName" id="firstName" placeholder="First Name" formControlName="firstName">
+
+                    </div>
+                    <div class="form-group">
+                        <label for="lastname">Last Name:</label>
+                        <input class="form-control" type="text" name="lastName" id="lastName" placeholder="Last Name" formControlName="lastName">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="username">Username:</label>
+                        <input class="form-control" type="text" name="username" id="username" placeholder="Username" formControlName="username">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="password">Password:</label>
+                        <input class="form-control" type="password" name="password" id="password" placeholder="Password" formControlName="password">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="confirm-password">Confirm Password:</label>
+                        <input class="form-control" type="password" name="confirm-password" id="confirm-password" placeholder="Confirm Password" formControlName="confirmPassword">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="dob">Date of Birth:</label>
+                        <input class="form-control" type="date" name="dob" id="dob" placeholder="" formControlName="dob">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="country">Country:</label>
+                        <input class="form-control" type="text" name="country" id="country" placeholder="Country" formControlName="country">
+                    </div>
+                    
+                    <button class="btn btn-success btn-lg" type="submit" [disabled]="!regForm.valid">Register</button>
+
+                    <div class="form-group">
+                        <p class="text-center">Already a member? <span><a href="">Register</a></span></p>
+                        <p>
+                            Form Status: {{ regForm.status }}
+                        </p>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
