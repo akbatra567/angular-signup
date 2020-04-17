@@ -6,10 +6,10 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 >  ng serve --open 
 
 ## Home / Before Validation
-<img src="docs/images/signup.png" alt="Before Validation" width="400px">
+<img src="docs/images/signup.png" alt="Before Validation" width="700px">
 
 ## After Validation Look
-<img src="docs/images/validation.png" alt="After Validation" width="400px">
+<img src="docs/images/validation.png" alt="After Validation" width="700px">
 
 
 
