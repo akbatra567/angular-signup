@@ -1,1 +1,10 @@
 @import '~bootstrap/scss/bootstrap.scss';
+
+.center {
+    margin: 0;
+    position: absolute;
+    top:10%;
+    left: 50%;
+    -ms-transform: translate(-50%, -10%);
+    transform: translate(-50%, -10%);
+  }

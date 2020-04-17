@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
+import { ResourceLoader } from '@angular/compiler';
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
@@ -7,7 +8,11 @@ import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms'
 })
 export class RegisterComponent implements OnInit {
 
-  title='Registration';
+  title='Register';
+  companytitle='Comunev';
+  about='Comunev is a startup building an interest-based social media platform. We have multiple communities on various interests. We are bringing people together and helping them in making real-life connections.';
+  abouttitle='About';
+
   regForm:FormGroup;
   submitted=false;
 
@@ -15,7 +20,7 @@ export class RegisterComponent implements OnInit {
  
   ngOnInit(): void {
     this.regForm = this.formbuilder.group({
-      'firstName' :['', Validators.required],
+      'firstName' :['', [Validators.required, Validators.minLength(2)]],
       'lastName' : ['', Validators.required],
       'username' : ['', [Validators.required, Validators.minLength(6)]],
       'password' : ['', [Validators.required, Validators.minLength(8)]],
@@ -25,15 +30,16 @@ export class RegisterComponent implements OnInit {
 
   }
 
-  get formData(){ return this.regForm.controls}
+  get f(){ return this.regForm.controls}
 
   submit(){
     this.submitted = true;
     if(this.regForm.invalid){
       return;
     }
-
     console.log(JSON.stringify(this.regForm.value));
-
+    alert('Success!! :-)');
+    this.submitted = false;
+    this.regForm.reset();
   }
 }

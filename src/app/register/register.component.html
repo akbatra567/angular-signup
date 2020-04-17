@@ -1,49 +1,77 @@
-<div class="container" style="width: 50%;">
-    <div class="row" style="opacity: 0.9;">
-        <div class="col-md-8 offset-md-2 card card-body">    
-            <h3 class="text-center card-title">{{ title }}</h3>
-            <div>
-                <form [formGroup]="regForm" (ngSubmit)="submit()">
-                    <div class="form-group">
-                        <label for="firstName">First Name:</label>
-                        <input class="form-control" type="text" name="firstName" id="firstName" placeholder="First Name" formControlName="firstName">
+<div class="container-fluid center" style="width: 750px; height: 550px;">
+        <div class="row container-fluid" style="opacity: 0.9;">
+            <div class="col-md-6 card card-body text-white bg-danger">
+                <img src="./../../assets/img/logo.png" class="card-img-top" width="100%">
+                <div class="card-body">
+                    <h3 class="card-title text-center">{{ abouttitle }} {{companytitle}} </h3>
+                    <p class="card-text lead">{{about}}</p>
+                    <h5>Follow us on: <span> <a href="https://www.linkedin.com/company/comunev/">LinkedIn</a></span></h5>
+                </div>
+            </div>
+            <div class="col-md-6 card card-body">
+                <h3 class="text-center card-title">{{ title }}</h3>
+                <div>
+                    <form [formGroup]="regForm" (ngSubmit)="submit()">
+                        <div class="form-group">
+                            <label for="firstName">First Name:</label>
+                            <input class="form-control rounded-pill" type="text" name="firstName" id="firstName" placeholder="First Name" formControlName="firstName" [ngClass]="{ 'is-invalid': submitted && f.firstName.errors }">
+                            <div *ngIf="submitted && f.firstName.errors" class="invalid-feedback">
+                                <div *ngIf="f.firstName.errors.required">First Name is required</div>
+                                <div *ngIf="f.firstName.errors.minlength">First Name is minimum 2 characters</div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="lastname">Last Name:</label>
+                            <input class="form-control rounded-pill" type="text" name="lastName" id="lastName" placeholder="Last Name" formControlName="lastName"  [ngClass]="{ 'is-invalid': submitted && f.lastName.errors }">
 
-                    </div>
-                    <div class="form-group">
-                        <label for="lastname">Last Name:</label>
-                        <input class="form-control" type="text" name="lastName" id="lastName" placeholder="Last Name" formControlName="lastName">
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="username">Username:</label>
-                        <input class="form-control" type="text" name="username" id="username" placeholder="Username" formControlName="username">
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="password">Password:</label>
-                        <input class="form-control" type="password" name="password" id="password" placeholder="Password" formControlName="password">
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="dob">Date of Birth:</label>
-                        <input class="form-control" type="date" name="dob" id="dob" placeholder="" formControlName="dob">
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="country">Country:</label>
-                        <input class="form-control" type="text" name="country" id="country" placeholder="Country" formControlName="country">
-                    </div>
-                    
-                    <button class="btn btn-success btn-lg" type="submit" [disabled]="!regForm.valid">Register</button>
+                            <div *ngIf="submitted && f.lastName.errors" class="invalid-feedback">
+                                <div *ngIf="f.lastName.errors.required">Last Name is required</div>
+                            </div>
+                        </div>
+    
+                        <div class="form-group">
+                            <label for="username">Username:</label>
+                            <input class="form-control rounded-pill" type="text" name="username" id="username" placeholder="Username" formControlName="username" [ngClass]="{ 'is-invalid': submitted && f.username.errors }">
+                            <div *ngIf="submitted && f.username.errors" class="invalid-feedback">
+                                <div *ngIf="f.username.errors.required">Username is required</div>
+                                <div *ngIf="f.username.errors.minlength">Username is minimum 6 characters</div>
+                            </div>
+                        </div>
+    
+                        <div class="form-group">
+                            <label for="password">Password:</label>
+                            <input class="form-control rounded-pill" type="password" name="password" id="password" placeholder="Password" formControlName="password" [ngClass]="{ 'is-invalid': submitted && f.password.errors }">
+                            
+                            <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+                                <div *ngIf="f.password.errors.required">Password is required</div>
+                                <div *ngIf="f.password.errors.minlength">Password is minimum 8 characters</div>
+                            </div>
+                        </div>
+    
+                        <div class="form-group">
+                            <label for="dob">Date of Birth:</label>
+                            <input class="form-control rounded-pill" type="date" name="dob" id="dob" placeholder="" formControlName="dob" [ngClass]="{ 'is-invalid': submitted && f.dob.errors }">
 
-                    <div class="form-group">
-                        <p class="text-center">Already a member? <span><a href="">Register</a></span></p>
-                        <p>
-                            Form Status: {{ regForm.status }}
-                        </p>
-                    </div>
-                </form>
+                            <div *ngIf="submitted && f.dob.errors" class="invalid-feedback">
+                                <div *ngIf="f.dob.errors.required">Date of Birth is required</div>
+                            </div>
+                        </div>
+    
+                        <div class="form-group">
+                            <label for="country">Country:</label>
+                            <input class="form-control rounded-pill" type="text" name="country" id="country" placeholder="Country" formControlName="country" [ngClass]="{ 'is-invalid': submitted && f.country.errors }">
+
+                            <div *ngIf="submitted && f.country.errors" class="invalid-feedback">
+                                <div *ngIf="f.country.errors.required">Country is required</div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <p class="text-center">Already a member? <span><a href="">Register</a></span></p>
+                        </div>    
+                        <button class="btn btn-primary btn-lg rounded-pill" type="submit">Register</button>
+                    </form>
+                </div>
             </div>
         </div>
-    </div>
 </div>
