@@ -1,6 +1,19 @@
-# Comunev
 
+# Comunev
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.1.1.
+
+## Run Server 
+>  ng serve --open 
+
+## Home / Before Validation
+<img src="docs/images/signup.png" alt="Before Validation" width="400px">
+
+## After Validation Look
+<img src="docs/images/validation.png" alt="After Validation" width="400px">
+
+
+
+## About 
 
 ## Development server
 
